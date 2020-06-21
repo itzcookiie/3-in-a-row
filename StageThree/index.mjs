@@ -248,4 +248,6 @@ Spent 6hrs so far. Project is 70% done in 6hrs. We need to finish functionality,
 Need to decide/remember what we are trying to do. Remember the orignial goal and the functionality needed will follow. 70% of the project done in 6hrs. In about 2hrs we could finish the entire project. Might have to tone down for the next project or spend some time going over what took so long and how we was doing over the entire time.
 
 BEFORE YOU START, WATCH THE FUNCTIONAL PROGRAMMING VIDEO.
+
+Quick idea, whenever we finish at the end of our time/day, make a commit to signal we are done coding
 */
