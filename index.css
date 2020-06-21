@@ -1,0 +1,18 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+body {
+	font-size: 100%;
+	font: inherit;
+    vertical-align: baseline;
+    height: 100vh;
+    background-color: #4fab4f;
+}
+
+.root {
+    height: 100%;
+}
