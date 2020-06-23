@@ -1,4 +1,8 @@
 const game = document.querySelector('.game-container')
+const canvasBoard = document.getElementById('gamecube')
+const displayCurrentUser = document.querySelector('.game-title')
+const playagainButton = document.querySelector('.play-button')
+
 const boardPositions = {
     one: {
         number: "one",
@@ -46,9 +50,11 @@ function play(node, user='computer') {
     console.log(node, user)
     if(user === 'player') {
         node.classList.toggle('noughts', node.classList.length < 3)
+        displayCurrentUser.innerText = 'COMPUTERS TURN'
         return;
     }
     node.classList.toggle('cross', node.classList.length < 3)
+    displayCurrentUser.innerText = 'YOUR TURN'
 }
 
 function checkAvailableSpots(arrayToCheck) {
@@ -91,12 +97,15 @@ const combinations = rowPositions.reduce((allPositions, rowPosition) => {
             straightLineHorizontal: {
                 rows: [
                     {
+                        rowPosition: 1,
                         row: [boardPositions.one.position, boardPositions.two.position, boardPositions.three.postion]
                     },
                     {
+                        rowPosition: 2,
                         row: [boardPositions.four.position, boardPositions.five.position, boardPositions.six.position]
                     },
                     {
+                        rowPosition: 3,
                         row: [boardPositions.seven.position, boardPositions.eight.position, boardPositions.nine.position]
                     }
                 ],
@@ -113,12 +122,15 @@ const combinations = rowPositions.reduce((allPositions, rowPosition) => {
             straightLineVertical: {
                 rows: [
                     {
+                        rowPosition: 1,
                         row: [boardPositions.one.position, boardPositions.four.position, boardPositions.seven.position]
                     },
                     {
+                        rowPosition: 2,
                         row: [boardPositions.two.position, boardPositions.five.position, boardPositions.eight.position]
                     },
                     {
+                        rowPosition: 3,
                         row: [boardPositions.three.postion, boardPositions.six.position, boardPositions.nine.position]
                     }
                 ],
@@ -137,7 +149,85 @@ const combinationKeys = Object.keys(combinations)
 
 console.log(combinationKeys)
 
-function successfulCombination() {
+const createCanvas = (winningCombination, rowPos) => {
+    const context = canvasBoard.getContext('2d')
+    const { width, height } = canvasBoard
+    switch(winningCombination) {
+        case 'diagonalLeft': {
+            context.moveTo(width,0)
+            context.lineTo(0, height)
+            context.stroke();
+            return;
+        }
+        case 'diagonalRight': {
+            context.moveTo(0,0)
+            context.lineTo(width, height)
+            context.stroke();
+            return;
+        }
+        case 'straightLineVertical': {
+            if(rowPos === 1) {
+                const startingGridWidth = 0 + 30
+                // 50 = distance from start of game board (minus padding) to the middle of column 1
+                const startingWidth = startingGridWidth + 50
+                context.moveTo(startingWidth,0)
+                context.lineTo(startingWidth, height)
+                context.stroke();
+                return;
+            }
+            if(rowPos === 2) {
+                const startingGridWidth = 0 + 30
+                // 150 = distance from start of game board (minus padding) to the middle of the second column
+                const startingWidth = startingGridWidth + 150
+                context.moveTo(startingWidth,0)
+                context.lineTo(startingWidth, height)
+                context.stroke();
+                return;
+            }
+            if(rowPos === 3) {
+                const startingGridWidth = 0 + 30
+                // 250 = distance from start of game board (minus padding) to the middle of the third column
+                const startingWidth = startingGridWidth + 250
+                context.moveTo(startingWidth,0)
+                context.lineTo(startingWidth, height)
+                context.stroke();
+                return;
+            }
+        }
+        case 'straightLineHorizontal': {
+            if(rowPos === 1) {
+                const startingGridHeight = 0 + 30
+                // 50 = distance from start of game board (minus padding) to the middle of row 1
+                const startingHeight = startingGridHeight + 50
+                context.moveTo(0,startingHeight)
+                context.lineTo(width, startingHeight)
+                context.stroke();
+                return;
+            }
+            if(rowPos === 2) {
+                const startingGridHeight = 0 + 30
+                // 150 = distance from start of game board (minus padding) to the middle of row 2
+                const startingHeight = startingGridHeight + 150
+                context.moveTo(0,startingHeight)
+                context.lineTo(width, startingHeight)
+                context.stroke();
+                return;
+            }
+            if(rowPos === 3) {
+                const startingGridHeight = 0 + 30
+                // 250 = distance from start of game board (minus padding) to the middle of row 3
+                const startingHeight = startingGridHeight + 250
+                context.moveTo(0,startingHeight)
+                context.lineTo(width, startingHeight)
+                context.stroke();
+                return;
+            }
+        }
+    }
+
+}
+
+function successfulCombination(user='COMPUTER') {
     const combinationKey = combinationKeys.filter((key) => {
         if(key === 'straightLineVertical' || key === 'straightLineHorizontal') {
             const noughtCombination = combinations[key].rows.filter(r => {
@@ -149,7 +239,7 @@ function successfulCombination() {
             const crossCombination = combinations[key].rows.filter(r => {
                 return r.row.filter(r => {
                     // console.log((r.classList.contains('noughts') && !r.classList.contains('cross')), 'hepoas')
-                    return (r.classList.contains('noughts'))
+                    return (r.classList.contains('cross'))
                 }).length === 3
             }).length === 1
             return noughtCombination || crossCombination
@@ -170,23 +260,37 @@ function successfulCombination() {
                 }).length === 3
             })
         }
-        return combinations[key].row.filter((ck) => (ck.classList.contains('noughts') && !ck.classList.contains('cross')) || (ck.classList.contains('cross') && !ck.classList.contains('noughts'))).length === 3
+        return combinations[key].row.filter((ck) => (ck.classList.contains('noughts')) || (ck.classList.contains('cross'))).length === 3
     })
 
     const finalResult = combinationKey.reduce((allKeys, key) => {
         if(key === 'straightLineVertical' || key === 'straightLineHorizontal') {
             return {
+                ...allKeys,
                 finisher: combinations[key].finisher,
                 rows: [...combinationMatch]
             }
         }
-        return combinations[key].row.filter((ck) => (ck.classList.contains('noughts') && !ck.classList.contains('cross')) || (ck.classList.contains('cross') && !ck.classList.contains('noughts'))).length === 3
-    }, [])
+        return {
+            ...allKeys,
+            finisher: combinations[key].finisher,
+            rows:combinations[key].row.filter((ck) => (ck.classList.contains('noughts')) || (ck.classList.contains('cross')))
+        }
+    }, {})
 
     console.log(finalResult)
 
     if(Object.keys(finalResult).length) {
         alert('There is a winner! ' + finalResult.finisher)
+        displayCurrentUser.innerText = `${user} WINS`
+        playagainButton.classList.toggle('play-again')
+        const combKey = combinationKey.find(k => k)
+        const { rowPosition } = finalResult.rows.find(r => r) 
+        if(combKey === 'diagonalLeft' || combKey === 'diagonalRight') {
+            createCanvas(combKey, rowPosition)
+        } else {
+            createCanvas(combKey, rowPosition)
+        }
     }
 }
 
@@ -200,7 +304,7 @@ rowPositions.map((rowPosition,index,array) => {
             return;
         } else {
             play(e.target, 'player')
-        console.log(combinations, successfulCombination())
+            console.log(combinations, successfulCombination('PLAYER'))
         }
         const availableSpotsAfterPlay = checkAvailableSpots(array)
         if(availableSpotsAfterPlay.length === 0) {
@@ -209,11 +313,29 @@ rowPositions.map((rowPosition,index,array) => {
         } else {
             const randomNumber = Math.floor(Math.random() * availableSpotsAfterPlay.length)
             const randomSpot = availableSpotsAfterPlay[randomNumber]
-            setTimeout(() => play(randomSpot), 1000)
+            setTimeout(() => {
+                play(randomSpot)
+                // console.log(combinations, successfulCombination())
+            }, 1000)
         }
-
     })
 })
+
+playagainButton.addEventListener('click', () => {
+    rowPositions.map(rowPosition => {
+        if(rowPosition.classList.contains('cross') || rowPosition.classList.contains('noughts')) {
+            rowPosition.classList.remove('cross') || rowPosition.classList.remove('noughts')
+        }
+    })
+    
+    playagainButton.classList.toggle('play-again')
+    displayCurrentUser.innerText = 'YOUR TURN'
+    const context = canvasBoard.getContext('2d')
+    const { width, height } = canvasBoard
+    context.clearRect(0,0, width, height)
+    context.beginPath();
+})
+
 
 // for(row of children) {
 //     for(position of row.children) {
@@ -250,4 +372,24 @@ Need to decide/remember what we are trying to do. Remember the orignial goal and
 BEFORE YOU START, WATCH THE FUNCTIONAL PROGRAMMING VIDEO.
 
 Quick idea, whenever we finish at the end of our time/day, make a commit to signal we are done coding
+
+Watch functional programming video. Learnt that functions should be pure - only information they should be working on is the input they received. They shouldn't be relying on external data ie. data that comes from outside the input. Learnt that I am not actually doing 100% functional programming.
+
+Focus today
+
+
+After a win, give the option to play again
+Create text above the gameboard that says who is playing, YOUR TURN or COMPUTERS TURN. When someone wins, change it to COMPUTER WINS or YOU WIN
+Create a tally chart to the right of the gameboard with a blue background.
+
+Spent around 9hrs 
+
+Find a way to display points on the tally chart
+Add colour to line drawn on winning match
+Add white colour to computer, black colour to player
+Add black colour to YOUR TURN and white colour to COMPUTERS TURN
+Make line drawn on three in a row stay within the game board. IE. take 30px off so it stays within the game board
+Make tally chart 2/3 the size of the game board
+
+PLAN WHAT WE ARE GOING TO DO. WE WON'T EVEN DO ANY CODING THIS SESSION. WE WILL JUST PLAN AND WRITE DOWN WHAT WE WANT TO DO, WHAT SOLUTIONS TO USE e.g. use grid, then flexbox etc. Spend 1hr just deciding how to finish off what we've started. Plan what we are going to do until we can say ok I am basically done now.
 */

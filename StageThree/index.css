@@ -35,3 +35,72 @@
 .cross::after {
     transform: rotate(45deg);
 }
+
+.line::before {
+    content: '';
+    position: absolute;
+    height: 50px;
+    width: 5px;
+    background: purple;
+}
+
+.gamecube {
+    position: absolute;
+    z-index: -1;
+}
+
+.play-again {
+    visibility: hidden;
+}
+
+.game-container {
+    grid-area: game;
+}
+
+.tally {
+    background-color: lightblue;
+    height: 200px;
+    width: 200px;
+    grid-area: tally;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+    ". game tally";
+    justify-items: center;
+    align-items: center;
+}
+
+.tally-title {
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 10px;
+}
+
+.scores {
+    display: flex;
+    justify-content: space-around;
+}
+
+.tally-points {
+    display: flex;
+    justify-content: space-around;
+}
+
+.point {
+    background-color: white;
+    height: 10px;
+    width: 2px;
+}
+
+.tally-points::before {
+    content: '';
+    position: absolute;
+    height: 35.6px;
+    width: 2px;
+    background-color: white;
+    transform: rotate(74deg);
+    top: 42.5%;
+}

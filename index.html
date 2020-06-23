@@ -42,23 +42,53 @@
                 <p class="play-message">Press enter to begin</p>
             </div> -->
             <div class="stage-three">
-                <div class="game-container">
-                    <div class="top">
-                        <div class="top-row one"></div>
-                        <div class="top-row two"></div>
-                        <div class="top-row three"></div>
+                <h1 class="game-title">YOUR TURN</h1>
+                <div class="game-board">
+                    <div class="game-container">
+                        <div class="top">
+                            <div class="top-row one"></div>
+                            <div class="top-row two"></div>
+                            <div class="top-row three"></div>
+                        </div>
+                        <div class="middle">
+                            <div class="middle-row four"></div>
+                            <div class="middle-row five"></div>
+                            <div class="middle-row six"></div>
+                        </div>
+                        <div class="bottom">
+                            <div class="bottom-row seven"></div>
+                            <div class="bottom-row eight"></div>
+                            <div class="bottom-row nine"></div>
+                        </div>
                     </div>
-                    <div class="middle">
-                        <div class="middle-row four"></div>
-                        <div class="middle-row five"></div>
-                        <div class="middle-row six"></div>
-                    </div>
-                    <div class="bottom">
-                        <div class="bottom-row seven"></div>
-                        <div class="bottom-row eight"></div>
-                        <div class="bottom-row nine"></div>
+                    <div class="tally">
+                        <h3 class="tally-title">TALLY</h3>
+                        <div class="scores">
+                            <div class="players-score">
+                                <h4>YOU</h4>
+                                <div class="tally-points">
+                                    <div class="point"></div>
+                                    <div class="point"></div>
+                                    <div class="point"></div>
+                                    <div class="point"></div>
+                                </div>
+                                <div class="tally-points">
+                                    <div class="point"></div>
+                                    <div class="point"></div>
+                                    <div class="point"></div>
+                                    <div class="point"></div>
+                                </div>
+            
+
+                            </div>
+                            <div class="computer-score">
+                                <h4>COMPUTER</h4>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                <canvas id="gamecube" class="gamecube" width="360" height="360"></canvas>
+                <button class="play-button play-again">PLAY AGAIN</button>
             </div>
         </div>
     </div>
