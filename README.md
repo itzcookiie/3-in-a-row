@@ -13,7 +13,20 @@
 
 Spent 6hrs so far. 70% of the project is done. I wanted to complete this in 4 - 6 hours, which I do believe is a very possible thing. I am happy with my progress so far though. 
 
+- 24/06/2020
+- Time: 00:20am
+
+It's 00.20am so, yeah but I started doing work from like 10.30 - 11pm the day before. It's Wednesday now. Spent 2 hrs taking us up to 9hrs total time. Going to try a planning session where I just sit down and think on what I am going to do. Usual, I just code away, but I want to try and not code this time and just think/imagine how I am going to finish it off, so I don't get stuck on deciding how to do it. Try make the journey a lot more simpler and smoother.
+
+Side note, kinda random, but I think the key for me to get better at coding is to spend more time learning + learn more about God. I think the first thing will expand my coding pool and help me to see from afar and code at a higher level basically. Learning in this case I think is reading articles, books or just finding a teacher somehow. Maybe youtube or doing exploring on coding as a whole tbh. Or maybe learning how to make games - that sounds fun.
+
+Learning more about God will help as well because that makes me the rest of me. If I learn more about God, everything in my life will get better. It will amplify everything.
+
+I may give myself a deadline, so I don't end up spending forever on this. Or it will be interesting to see how much work I get done within certain time periods, especially when I set myself a deadline.
+
 ### Aims
 - Complete in 4 - 6 hours
-- Current time spent: 6hrs
-- % of project completed: 70%
+- Current time spent: 9hrs
+- % of project completed: 80%
+- Total time I will spend on this project: 12hrs
+- Time left: 3hrs
