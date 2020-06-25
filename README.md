@@ -31,7 +31,7 @@ Spent 1hr 15mins tryna plan what I am going to do next time I touch this project
 
 It would be great to get started on this in the morning, before work, eating a nice bowl of granola, bathed and ready to goooo
 
-Yeah and I need to change SSH keys, so the person who made this project is actually make PRs... I'll do that now then.
+Yeah and I need to change SSH keys, so the person who made this project is actually make PRs... I'll do that now then. Should work now?
 
 ### Aims
 - Complete in 4 - 6 hours
