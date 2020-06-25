@@ -24,9 +24,16 @@ Learning more about God will help as well because that makes me the rest of me. 
 
 I may give myself a deadline, so I don't end up spending forever on this. Or it will be interesting to see how much work I get done within certain time periods, especially when I set myself a deadline.
 
+25/06/2020
+- Time: 1.02am
+
+Spent 1hr 15mins tryna plan what I am going to do next time I touch this project. I think I will try complete this in the morning. I have 1hr 45mins left of work to do, before I stop and give it a rest. I think I will look at it as completed by then - any more work on it will be extra. I have 3 main tasks to do to have the whole game done as a whole. Then I have some minor clean up duty, extra finishing touches type work to do after.
+
+It would be great to get started on this in the morning, before work, eating a nice bowl of granola, bathed and ready to goooo
+
 ### Aims
 - Complete in 4 - 6 hours
-- Current time spent: 9hrs
+- Current time spent: 10hrs 15mins
 - % of project completed: 80%
 - Total time I will spend on this project: 12hrs
-- Time left: 3hrs
+- Time left: 1hrs 45mins
