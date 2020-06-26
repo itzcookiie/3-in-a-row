@@ -33,6 +33,15 @@ It would be great to get started on this in the morning, before work, eating a n
 
 Yeah and I need to change SSH keys, so the person who made this project is actually make PRs... I'll do that now then. Should work now?
 
+26/06/2020
+- Time: 18:23pm
+
+Going to gym w/ Borris now. Spent about 1hr 30mins I think. Taking me to about 12hrs I guess... not good for me at all. Might spend 1 more hr doing this and I will do it to finish, not to critic and play around. Easy to lose myself, but I will spend I think a good hr and it will just be to finish the project, not worry about whether it looks picture perfect or not.
+
+- Time: 9.06pm
+
+Will spend 1 more hour on this and I will get it done in that hour. I will start this at 6am tomo and finish at 7am. Sole objective is to finish and put everything together, linking all the stages.
+
 ### Aims
 - Complete in 4 - 6 hours
 - Current time spent: 10hrs 15mins
