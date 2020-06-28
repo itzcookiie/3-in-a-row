@@ -6,7 +6,7 @@
 
 ## How to use it
 
-- To be filled out soon...
+- Press play, enter a username, press enter and your in!
 
 ## Progress so far
 - 21/06/2020
@@ -42,9 +42,27 @@ Going to gym w/ Borris now. Spent about 1hr 30mins I think. Taking me to about 1
 
 Will spend 1 more hour on this and I will get it done in that hour. I will start this at 6am tomo and finish at 7am. Sole objective is to finish and put everything together, linking all the stages.
 
+27/06/20
+- Time: 6.53am
+
+I am going to start my project at 7am and finish at 8am. 
+
+- Time: 8.02am
+
+I have finished working on my project now. Any more time I spend on it now will just be for fun or for me to continue to learn. I learnt quite a lot of things during my last 1hr of working on this:
+
+- I need a way of programming in general - think I am starting to see why programming using a paradigm is useful. Because while I was coding, I didn't want to code in a certain way or do things in a certain way because it just didn't feel right. E.g. I wanted to a way to distinguish between the computer's HTML score and the player's HTML score. I was going to add a class to each person, class name being 'player' for player and 'computer' for computer, so I can reference them easily using JS. I didn't want to do that though, because I was like, why am I creating a class name just to reference JS. Isn't there another way of doing this? It didn't feel right to create class names just for JS. Class names should just be used to CSS. Thinking about it now, I think even just coding that way and looking back at it in the end might be a better learning experience for me than to just not do it. Either way, programming paradigms feel kinda important now, so in those situations, I know what to do and I have an approach to doing everything basically
+- I work better when I put a time to what I am doing. Otherwise, I just end up lol'ing about
+- Working under a time limit also helps me put things into perspective. E.g. I ended up using localStorage to store the username, instead of trying to do the custom solution I was thinking of. I spent quite a bit of time coming up with how to do it my way, but when I was working under a time, I said forget that, I want to finish this project not spend all my time trying out custom solutions. There's no actual reason for me not to use localStorage as well... A lot of my programming feels kinda random when I think about it now. 
+- I also think I like programming this way as well because I can focus on functionality and get that working and do UI/design later. If I spent all my time on functionality, maybe it would look a lot prettier now. Because at the end, I wanted to do some UI/design stuff, but I didn't have any time for that. I wanted to get the whole game working, from start to finish instead of adding extra design stuff that didn't really matter at the time.
+- Also I spent about 40 - 45mins (around 40mins) trying to get the tally chart scoreboard system to work with JS. That took all my time. Thinking about it now, I am quite happy with that. I got to focus on functionality and that's what I wanted to do. Only thing was that my implementation was mad. I wonder if one needs so much JS to to things. Does code always have to be mega fat?
+- Also I didn't eat or listen to music while working. I think it helps to focus more on what I am doing. I wanted to replicate me doing an exam - only thing I can do is drink water or have scrap paper to work things out
+- Something that is pretty sick. I think the game looks better without the 1px white border around. But what's sick about that is, the border helped me to position everything. Now when I take the border off, I think it looks better, but the border helped me to put everything together. The border was basically a frame for me to work in and when I was done, I could take off the frame. Having the border means I can put everything where I want it.
+
+
 ### Aims
 - Complete in 4 - 6 hours
-- Current time spent: 10hrs 15mins
-- % of project completed: 80%
-- Total time I will spend on this project: 12hrs
-- Time left: 1hrs 45mins
+- Current time spent: 13hrs
+- % of project completed: 95%
+- Total time I will spend on this project: 13hrs
+- Time left: 0hr

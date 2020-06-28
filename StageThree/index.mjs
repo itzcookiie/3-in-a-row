@@ -48,13 +48,13 @@ const { children } = game
 
 function play(node, user='computer') {
     console.log(node, user)
-    if(user === 'player') {
+    if(user === localStorage.getItem('user')) {
         node.classList.toggle('noughts', node.classList.length < 3)
         displayCurrentUser.innerText = 'COMPUTERS TURN'
         return;
     }
     node.classList.toggle('cross', node.classList.length < 3)
-    displayCurrentUser.innerText = 'YOUR TURN'
+    displayCurrentUser.innerText = `${localStorage.getItem('user')} TURN`
 }
 
 function checkAvailableSpots(arrayToCheck) {
@@ -283,6 +283,43 @@ function successfulCombination(user='COMPUTER') {
     if(Object.keys(finalResult).length) {
         alert('There is a winner! ' + finalResult.finisher)
         displayCurrentUser.innerText = `${user} WINS`
+        const currentUser = user === localStorage.getItem('user') ? 'player' : 'computer'
+        const currentTallyGrid = document.querySelector(`.${currentUser}s-score`).querySelector('.tally-grid')
+        const currentTallyPoints = Object.values(currentTallyGrid.children)
+        const lastTallyPoint = currentTallyPoints[currentTallyGrid.children.length - 1]
+        const pointsContainer = lastTallyPoint.querySelector('.points-container')
+        if(pointsContainer.children.length === 4) {
+            const fragment = document.createDocumentFragment()
+            const fifthPoint = document.createElement('div')
+            fifthPoint.className = 'point-5'
+            const point = document.createElement('p')
+            point.className = 'points points-5'
+            fifthPoint.appendChild(point)
+            fragment.appendChild(fifthPoint)
+            pointsContainer.appendChild(fragment)
+        } else if(pointsContainer.children.length < 4){
+            const point = document.createElement('p')
+            point.className = 'points'
+            pointsContainer.appendChild(point)
+        } else if(pointsContainer.children.length === 5) {
+            const tallyGrid = document.querySelector(`.${currentUser}s-score`).querySelector('.tally-grid')
+            const currentTallyPoints = Object.values(tallyGrid.children)
+            const lastTallyPoint = currentTallyPoints[tallyGrid.children.length - 1]
+            const newTallyPoints = document.createElement('div')
+            if(lastTallyPoint.className === 'tally-points') {
+                newTallyPoints.className = 'tally-points-a'
+            } else {
+                newTallyPoints.className = 'tally-points'
+            }
+            console.log(newTallyPoints, 'ntw')
+            const newPointsContainer = document.createElement('div')
+            newPointsContainer.className = 'points-container'
+            const point = document.createElement('p')
+            point.className = 'points'
+            newPointsContainer.appendChild(point)
+            newTallyPoints.appendChild(newPointsContainer)
+            tallyGrid.appendChild(newTallyPoints)
+        }
         playagainButton.classList.toggle('play-again')
         const combKey = combinationKey.find(k => k)
         const { rowPosition } = finalResult.rows.find(r => r) 
@@ -303,7 +340,7 @@ rowPositions.map((rowPosition,index,array) => {
             alert('Draw. Play again?')
             return;
         } else {
-            play(e.target, 'player')
+            play(e.target, localStorage.getItem('user'))
             console.log(combinations, successfulCombination('PLAYER'))
         }
         const availableSpotsAfterPlay = checkAvailableSpots(array)
@@ -329,7 +366,7 @@ playagainButton.addEventListener('click', () => {
     })
     
     playagainButton.classList.toggle('play-again')
-    displayCurrentUser.innerText = 'YOUR TURN'
+    displayCurrentUser.innerText = `${localStorage.getItem('user')} TURN`
     const context = canvasBoard.getContext('2d')
     const { width, height } = canvasBoard
     context.clearRect(0,0, width, height)

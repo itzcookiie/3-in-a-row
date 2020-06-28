@@ -87,7 +87,7 @@
     height: 100%;
 }
 
-.players-score, .computer-score {
+.players-score, .computers-score {
     flex: 1;
     display: flex;
     flex-direction: column;
